@@ -59,7 +59,6 @@ const Dashboard = props => {
                 <h6 className="page-title">Dashboard</h6>
                 <ol className="breadcrumb m-0">
                   <li className="breadcrumb-item active">Bienvenido a Dashboard 7AM Digital</li>
-                  <h1>HOLAAA</h1>
                 </ol>
               </Col>
               </Row>
