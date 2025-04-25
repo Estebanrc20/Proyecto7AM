@@ -57,7 +57,7 @@ const ProfileMenu = props => {
           />
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">
-          <DropdownItem tag="a" href="/profile">
+          <DropdownItem tag="a" href="/PerfilUsuario">
             {" "}
             <i className="mdi mdi-account-circle font-size-17 align-middle me-1" />
             {props.t("Perfil")}{" "}
@@ -72,10 +72,10 @@ const ProfileMenu = props => {
             <i className="mdi mdi-cog font-size-17 align-middle me-1" />
             {props.t("Settings")}{" "}<span className="badge bg-success ms-auto">11</span>
           </DropdownItem>*/}
-          <DropdownItem tag="a" href="auth-lock-screen">
+          {/*<DropdownItem tag="a" href="authpantallabloqueo">
           <i className="mdi mdi-lock-open-outline font-size-17 align-middle me-1" />
             {props.t("Bloquear Pantalla")}
-          </DropdownItem>
+          </DropdownItem>*/}
           <div className="dropdown-divider" />
           <Link to="/logout" className="dropdown-item text-danger">
           <i className="bx bx-power-off font-size-17 align-middle me-1 text-danger" />

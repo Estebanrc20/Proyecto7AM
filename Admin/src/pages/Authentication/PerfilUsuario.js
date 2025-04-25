@@ -29,7 +29,7 @@ import avatar from "../../assets/images/users/user-4.jpg";
 // actions
 import { editProfile, resetProfileFlag } from "../../store/actions";
 
-const UserProfile = props => {
+const PerfilUsuario = props => {
   const dispatch = useDispatch();
 
   const [email, setemail] = useState("");
@@ -114,7 +114,8 @@ const UserProfile = props => {
             </Col>
           </Row>
 
-          <h4 className="card-title mb-4">Change User Name</h4>
+          <h4 className="card-title mb-4">Cambiar nombre de usuario
+          </h4>
 
           <Card>
             <CardBody>
@@ -128,7 +129,8 @@ const UserProfile = props => {
                 }}
               >
                 <div className="form-group">
-                  <Label className="form-label">User Name</Label>
+                  <Label className="form-label">Nombre de usuario
+                  </Label>
                   <Input
                     name="username"
                     className="form-control"
@@ -148,7 +150,7 @@ const UserProfile = props => {
                 </div>
                 <div className="text-center mt-4">
                   <Button type="submit" color="danger">
-                    Edit User Name
+                  Editar nombre de usuario
                   </Button>
                 </div>
               </Form>
@@ -160,7 +162,7 @@ const UserProfile = props => {
   );
 };
 
-UserProfile.propTypes = {
+PerfilUsuario.propTypes = {
   editProfile: PropTypes.func,
   error: PropTypes.any,
   success: PropTypes.any
@@ -172,5 +174,5 @@ const mapStatetoProps = state => {
 };
 
 export default withRouter(
-  connect(mapStatetoProps, { editProfile, resetProfileFlag })(UserProfile)
+  connect(mapStatetoProps, { editProfile, resetProfileFlag })(PerfilUsuario)
 );

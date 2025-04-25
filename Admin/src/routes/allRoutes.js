@@ -1,15 +1,16 @@
 import React from "react";
 
-// Profile
-import UserProfile from "../pages/Authentication/user-profile";
+// Perfil
+import PerfilUsuario from "../pages/Authentication/PerfilUsuario";
 
 // Pages Calendar
-import Calendar from "../pages/Calendar/index";
+import Calendario from "../pages/Calendario/index";
 
 //Email
-import EmailInbox from "../pages/Email/email-inbox";
-import EmailRead from "../pages/Email/email-read";
-import EmailCompose from "../pages/Email/email-compose";
+import PublicacionSimultanea from "../pages/Planificacion/publicacionsimultanea";
+import Analisis from "../pages/Planificacion/analisis";
+import Gestion from "../pages/Planificacion/gestion";
+import Reportes from "../pages/Planificacion/reportes";
 
 /*import Emailtemplatealert from "../pages/EmailTemplate/email-template-alert";
 import Emailtemplatebasic from "../pages/EmailTemplate/email-template-basic";*/
@@ -22,21 +23,14 @@ import Register from "../pages/Authentication/Register";
 import ForgetPwd from "../pages/Authentication/ForgetPassword";
 
 //  // Inner Authentication
-import Login1 from "../pages/AuthenticationInner/Login";
-//import Login2 from "../pages/AuthenticationInner/Login2";
+{/*import Login1 from "../pages/AuthenticationInner/Login";
 import Register1 from "../pages/AuthenticationInner/Register";
-//import Register2 from "../pages/AuthenticationInner/Register2";
 import Recoverpw from "../pages/AuthenticationInner/Recoverpw";
-//import Recoverpw2 from "../pages/AuthenticationInner/Recoverpw2";
 import ForgetPwd1 from "../pages/AuthenticationInner/ForgetPassword";
-import LockScreen from "../pages/AuthenticationInner/auth-lock-screen";
-//import LockScreen2 from "../pages/AuthenticationInner/auth-lock-screen-2";
+import BloquearPantalla from "../pages/AuthenticationInner/authpantallabloqueo";
 import ConfirmMail from "../pages/AuthenticationInner/page-confirm-mail";
-//import ConfirmMail2 from "../pages/AuthenticationInner/page-confirm-mail-2";
-import EmailVerification from "../pages/AuthenticationInner/auth-email-verification";
-//import EmailVerification2 from "../pages/AuthenticationInner/auth-email-verification-2";
-import TwostepVerification from "../pages/AuthenticationInner/auth-two-step-verification";
-//import TwostepVerification2 from "../pages/AuthenticationInner/auth-two-step-verification-2";
+import VerificacionEmail from "../pages/AuthenticationInner/authverificacioncorreo";
+import TwostepVerification from "../pages/AuthenticationInner/auth-two-step-verification";*/}
 
 // Dashboard
 import Dashboard from "../pages/Dashboard/index";
@@ -118,15 +112,16 @@ const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
 
   // //calendario
-  { path: "/calendar", component: <Calendar /> },
+  { path: "/calendario", component: <Calendario /> },
 
   // //perfil
-  { path: "/profile", component: <UserProfile /> },
+  { path: "/PerfilUsuario", component: <PerfilUsuario /> },
 
   //Email
-  { path: "/email-inbox", component: <EmailInbox /> },
-  { path: "/email-read", component: <EmailRead/> },
-  { path: "/email-compose", component: <EmailCompose /> },
+  { path: "/publicacionsimultanea", component: <PublicacionSimultanea/> },
+  { path: "/analisis", component: <Analisis/> },
+  { path: "/gestion", component: <Gestion/> },
+  { path: "/reportes", component: <Reportes /> },
 
   // Plantillas
   { path: "/plantillas", component: <Plantillas />},
@@ -220,21 +215,14 @@ const authRoutes = [
   { path: "/pages-500", component: <Pages500 /> },
 
   // Authentication Inner
-  { path: "/pages-login", component: <Login1 /> },
-  //{ path: "/pages-login-2", component: <Login2 /> },
+  {/*{ path: "/pages-login", component: <Login1 /> },
   { path: "/pages-register", component: <Register1 /> },
-  //{ path: "/pages-register-2", component: <Register2 /> },
   { path: "/page-recoverpw", component: <Recoverpw /> },
-  //{ path: "/page-recoverpw-2", component: <Recoverpw2 /> },
   { path: "/pages-forgot-pwd", component: <ForgetPwd1 /> },
-  { path: "/auth-lock-screen", component: <LockScreen /> },
-  //{ path: "/auth-lock-screen-2", component: <LockScreen2 /> },
+  { path: "/authpantallabloqueo", component: <BloquearPantalla/> },
   { path: "/page-confirm-mail", component: <ConfirmMail /> },
-  //{ path: "/page-confirm-mail-2", component: <ConfirmMail2 /> },
-  { path: "/auth-email-verification", component: <EmailVerification /> },
- //{ path: "/auth-email-verification-2", component: <EmailVerification2 /> },
-  { path: "/auth-two-step-verification", component: <TwostepVerification /> },
-  //{ path: "/auth-two-step-verification-2", component: <TwostepVerification2 /> },
+  { path: "/authverificacioncorreo", component: <VerificacionEmail /> },
+  { path: "/auth-two-step-verification", component: <TwostepVerification /> },*/}
 ];
 
 export { userRoutes, authRoutes };

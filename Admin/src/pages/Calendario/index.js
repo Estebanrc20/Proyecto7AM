@@ -220,7 +220,16 @@ const Calender = props => {
       <div className="page-content">
         <Container fluid={true}>
           {/* Render Breadcrumb */}
-          <Breadcrumbs title="7AM Digital" breadcrumbItem="Calendario" />
+          <div className="page-title-box">
+                      <Row className="align-items-center">
+                        <Col md={8}>
+                          <h6 className="page-title">Calendario</h6>
+                          <ol className="breadcrumb m-0">
+                            <li className="breadcrumb-item active">7AM Digital</li>
+                          </ol>
+                        </Col>
+                      </Row>
+                    </div>
           <Row>
             <Col className="col-12">
               <Row>

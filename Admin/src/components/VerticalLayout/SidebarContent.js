@@ -155,7 +155,7 @@ const SidebarContent = props => {
             </li>
 
             <li>
-              <Link to="/calendar" className=" waves-effect">
+              <Link to="/calendario" className=" waves-effect">
                 <i className="ti-calendar"></i>
                 <span>{props.t("Calendario")}</span>
               </Link>
@@ -168,16 +168,20 @@ const SidebarContent = props => {
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/email-inbox">{props.t("Publicacion simultanea en varios canales digitales")}</Link>
+                  <Link to="/publicacionsimultanea">{props.t("Publicacion simultanea en varios canales digitales")}</Link>
                 </li>
                 <li>
-                  <Link to="/email-read">{props.t("Analisis de estadistica en tiempo real")} </Link>
+                  <Link to="/analisis">{props.t("Analisis de estadistica en tiempo real")} </Link>
                 </li>
                 <li>
-                  <Link to="/email-compose">{props.t("Gestion de comentarios y reseñas")} </Link>
+                  <Link to="/gestion">{props.t("Gestion de comentarios y reseñas")} </Link>
                 </li>
+                <li>
+                  <Link to="/reportes">{props.t("Reportes mensuales de rendimiento")} </Link>
+                  </li>
               </ul>
             </li>
+            
 
             {/*<li className="menu-title">{props.t("Components")}</li>
 
