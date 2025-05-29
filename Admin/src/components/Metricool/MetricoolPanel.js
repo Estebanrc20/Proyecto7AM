@@ -4,7 +4,7 @@ const MetricoolPanel = ({ loginToken }) => {
   return (
     <iframe
       src={loginUrl}
-      style={{ width: '100%', height: '80vh', border: 'none'}}
+      style={{ width: '100%', height: '90vh', border: 'none'}}
       title="Metricool White Label"
     />
   );
