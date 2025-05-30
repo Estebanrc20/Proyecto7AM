@@ -13,7 +13,7 @@
 export default MetricoolPanel;*/
 
 const MetricoolPanel = ({ loginToken }) => {
-  const loginUrl = `https://app.metricool.com/autoin/${loginToken}`;
+  const loginUrl = `https://app.metricool.com/autoin/KHDLAUEHUOLAKQCIJJXW`;
 
   return (
     <div style={{ textAlign: 'center', marginTop: '2rem' }}>
