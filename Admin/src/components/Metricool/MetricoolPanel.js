@@ -1,4 +1,4 @@
-const MetricoolPanel = ({ loginToken }) => {
+/*const MetricoolPanel = ({ loginToken }) => {
   const loginUrl = `https://app.metricool.com/autoin/KHDLAUEHUOLAKQCIJJXW`;
 
   return (
@@ -10,5 +10,31 @@ const MetricoolPanel = ({ loginToken }) => {
   );
 };
 
-export default MetricoolPanel;
+export default MetricoolPanel;*/
+
+
+const MetricoolPanel = ({ loginToken }) => {
+  const loginUrl = `https://app.metricool.com/autoin/KHDLAUEHUOLAKQCIJJXW`;
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+      <h2>Ir al panel completo de Metricool</h2>
+      <a
+        href={loginUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          padding: '10px 20px',
+          backgroundColor: '#4A90E2',
+          color: '#fff',
+          borderRadius: '5px',
+          textDecoration: 'none',
+          fontWeight: 'bold'
+        }}
+      >
+        Abrir Metricool
+      </a>
+    </div>
+  );
+};
 
