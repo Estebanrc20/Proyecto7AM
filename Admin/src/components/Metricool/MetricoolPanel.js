@@ -10,7 +10,7 @@
   );
 };
 
-export default MetricoolPanel;*/
+export default MetricoolPanel:*/
 
 
 const MetricoolPanel = ({ loginToken }) => {
