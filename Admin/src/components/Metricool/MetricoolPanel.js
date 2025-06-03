@@ -16,5 +16,5 @@ const openMetricool = () => {
 };
 
 <button onClick={openMetricool}>
-  Abrir Metricool completo
+  Abrir Metricool completo.
 </button>
