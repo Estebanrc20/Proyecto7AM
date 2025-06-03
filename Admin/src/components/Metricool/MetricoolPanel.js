@@ -1,4 +1,4 @@
-/*const MetricoolPanel = ({ loginToken }) => {
+const MetricoolPanel = ({ loginToken }) => {
   const loginUrl = `https://app.metricool.com/autoin/KHDLAUEHUOLAKQCIJJXW`;
 
   return (
@@ -10,11 +10,4 @@
   );
 };
 
-export default MetricoolPanel;*/
-const openMetricool = () => {
-  window.open('https://app.metricool.com/autoin/KHDLAUEHUOLAKQCIJJXW', '_blank');
-};
-
-<button onClick={openMetricool}>
-  Abrir Metricool completo.
-</button>
+export default MetricoolPanel;
