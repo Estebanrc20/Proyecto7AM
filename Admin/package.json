@@ -18,7 +18,7 @@
     "@toast-ui/react-chart": "^4.7.1",
     "@vtaits/react-color-picker": "^1.0.2",
     "apexcharts": "^3.54.0",
-    "axios": "^1.7.7",
+    "axios": "^1.9.0",
     "axios-mock-adapter": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^5.3.3",

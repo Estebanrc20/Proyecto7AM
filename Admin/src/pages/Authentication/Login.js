@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from "react";
 
 import { Row, Col, CardBody, Card, Container, Label, Form, FormFeedback, Input } from "reactstrap";
+import axios from "axios";
 
 // Redux
 import { connect, useSelector, useDispatch } from "react-redux";
@@ -41,15 +42,27 @@ const Login = props => {
     enableReinitialize: true,
 
     initialValues: {
-      email: userLogin.email || "admin@themesbrand.com" || '',
-      password: userLogin.password || "123456" || '',
+      email: userLogin.email || "" || '',
+      password: userLogin.password || "" || '',
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Por favor, introduzca su nombre de usuario"),
       password: Yup.string().required("Por favor, introduzca su contraseña"),
     }),
     onSubmit: (values) => {
-      dispatch(loginUser(values, props.router.navigate));
+      axios.post("http://localhost:3000/login", values)
+  .then(response => {
+    if (response.data.success) {
+      // Redirige al dashboard con el iframe
+      props.router.navigate(`/dashboard?iframe=${encodeURIComponent(response.data.iframe)}`);
+    } else {
+      alert("Correo o contraseña incorrectos");
+    }
+  })
+  .catch(error => {
+    console.error("Error al iniciar sesión:", error);
+    alert("Error en el servidor al intentar iniciar sesión");
+  });
     }
   });
 
