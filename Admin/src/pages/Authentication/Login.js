@@ -42,14 +42,17 @@ const Login = props => {
     enableReinitialize: true,
 
     initialValues: {
-      email: userLogin.email || "" || '',
-      password: userLogin.password || "" || '',
+      email: userLogin.email || "admin@themesbrand.com" || '',
+      password: userLogin.password || "123456" || '',
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Por favor, introduzca su nombre de usuario"),
       password: Yup.string().required("Por favor, introduzca su contraseña"),
     }),
     onSubmit: (values) => {
+      dispatch(loginUser(values, props.router.navigate));
+    }
+    /*onSubmit: (values) => {
       axios.post("http://localhost:3000/login", values)
   .then(response => {
     if (response.data.success) {
@@ -63,9 +66,8 @@ const Login = props => {
     console.error("Error al iniciar sesión:", error);
     alert("Error en el servidor al intentar iniciar sesión");
   });
-    }
+}}*/
   });
-
   document.title = "Iniciar Sesion | 7AM Digital";
   return (
     <React.Fragment>
