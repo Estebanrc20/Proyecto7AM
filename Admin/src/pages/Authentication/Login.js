@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from "react";
 
 import { Row, Col, CardBody, Card, Container, Label, Form, FormFeedback, Input } from "reactstrap";
-import axios from "axios";
 
 // Redux
 import { connect, useSelector, useDispatch } from "react-redux";
@@ -52,22 +51,8 @@ const Login = props => {
     onSubmit: (values) => {
       dispatch(loginUser(values, props.router.navigate));
     }
-    /*onSubmit: (values) => {
-      axios.post("http://localhost:3000/login", values)
-  .then(response => {
-    if (response.data.success) {
-      // Redirige al dashboard con el iframe
-      props.router.navigate(`/dashboard?iframe=${encodeURIComponent(response.data.iframe)}`);
-    } else {
-      alert("Correo o contraseña incorrectos");
-    }
-  })
-  .catch(error => {
-    console.error("Error al iniciar sesión:", error);
-    alert("Error en el servidor al intentar iniciar sesión");
   });
-}}*/
-  });
+
   document.title = "Iniciar Sesion | 7AM Digital";
   return (
     <React.Fragment>
@@ -203,3 +188,4 @@ Login.propTypes = {
   history: PropTypes.object,
   loginUser: PropTypes.func,
 };
+
