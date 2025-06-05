@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 
 import { Row, Col, CardBody, Card, Container, Label, Form, FormFeedback, Input } from "reactstrap";
 import axios from "axios";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/config";
 
 // Redux
 import { connect, useSelector, useDispatch } from "react-redux";
@@ -50,25 +52,22 @@ const Login = props => {
       password: Yup.string().required("Por favor, introduzca su contraseña"),
     }),
     onSubmit: (values) => {
-      axios.post("http://localhost:3000/login", values)
-  .then(response => {
-    if (response.data.success) {
-      // Redirige al dashboard con el iframe
-      props.router.navigate(`/dashboard?iframe=${encodeURIComponent(response.data.iframe)}`);
-    } else {
-      alert("Correo o contraseña incorrectos");
-    }
-  })
-  .catch(error => {
-    console.error("Error al iniciar sesión:", error);
-    alert("Error en el servidor al intentar iniciar sesión");
-  });
+      signInWithEmailAndPassword(auth, values.email, values.password)
+        .then((userCredential) => {
+          // Login exitoso
+          const user = userCredential.user;
+          console.log("Usuario autenticado:", user);
+          props.router.navigate("/dashboard");
+        })
+        .catch((error) => {
+          console.error("Error en el login:", error);
+          alert("Correo o contraseña incorrectos.");
+        });
     }
   });
-
   document.title = "Iniciar Sesion | 7AM Digital";
-  return (
-    <React.Fragment>
+    return(
+    <React.Fragment >
       <div className="home-btn d-none d-sm-block">
         <Link to="/" className="text-dark">
           <i className="fas fa-home h2" />
@@ -85,10 +84,10 @@ const Login = props => {
                       Bienvenido de nuevo
                     </h5>
                     <p className="text-white-50">
-                    Inicia Sesión para continuar en 7AM
+                      Inicia Sesión para continuar en 7AM
                     </p>
                     <Link to="/">
-                    <img src={logoSm} height="45" alt="logo" />                     
+                      <img src={logoSm} height="45" alt="logo" />
                     </Link>
                   </div>
                 </div>
@@ -183,7 +182,7 @@ const Login = props => {
           </Row>
         </Container>
       </div>
-    </React.Fragment>
+    </React.Fragment >
   );
 };
 
