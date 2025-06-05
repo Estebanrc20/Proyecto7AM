@@ -188,4 +188,3 @@ Login.propTypes = {
   history: PropTypes.object,
   loginUser: PropTypes.func,
 };
-
