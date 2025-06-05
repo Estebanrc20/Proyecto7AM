@@ -29,7 +29,6 @@ const Register = props => {
     if (user) {
       setTimeout(() => history("/login"), 3000);
     }
-
     // setTimeout(() => {
     //     dispatch(resetRegisterFlag());
     // }, 3000);
