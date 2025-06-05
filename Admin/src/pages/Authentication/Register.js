@@ -19,7 +19,6 @@ import logoSm from "../../assets/images/logo7amblanco.png";
 const Register = props => {
   const history = useNavigate();
 
-  
   const dispatch = useDispatch();
 
   const { user } = useSelector(state => ({

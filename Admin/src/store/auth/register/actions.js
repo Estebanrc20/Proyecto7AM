@@ -11,6 +11,7 @@ export const registerUser = user => {
   }
 }
 
+
 export const registerUserSuccessful = user => {
   return {
     type: REGISTER_USER_SUCCESSFUL,

@@ -14,7 +14,6 @@ import {
 // initialize relavant method of both Auth
 const fireBaseBackend = getFirebaseBackend()
 
-
 // Is user register successfull then direct plot user in redux.
 function* registerUser({ payload: { user } }) {
   try {
