@@ -29,6 +29,7 @@ const Register = props => {
     if (user) {
       setTimeout(() => history("/login"), 3000);
     }
+
     // setTimeout(() => {
     //     dispatch(resetRegisterFlag());
     // }, 3000);
@@ -55,7 +56,10 @@ const Register = props => {
     }
   });
 
-
+  // handleValidSubmit
+  const handleValidSubmit = (event, values) => {
+    props.registerUser(values);
+  };
 
   useEffect(() => {
     props.apiError("");

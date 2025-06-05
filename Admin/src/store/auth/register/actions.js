@@ -24,5 +24,3 @@ export const registerUserFailed = user => {
     payload: user,
   }
 }
-
-
