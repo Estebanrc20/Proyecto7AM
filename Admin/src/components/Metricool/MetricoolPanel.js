@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { FaSearch, FaComments, FaCalendarAlt, FaLink, FaBullhorn } from 'react-icons/fa';
 
 const MetricoolPanel = ({ loginToken }) => {
@@ -6,7 +6,6 @@ const MetricoolPanel = ({ loginToken }) => {
 
   return (
     <div style={{ backgroundColor: '#1e1e1e', color: '#fff', height: '100vh' }}>
-      {/* Menú superior */}
       <div style={{
         display: 'flex',
         alignItems: 'center',
@@ -29,7 +28,6 @@ const MetricoolPanel = ({ loginToken }) => {
         />
       </div>
 
-      {/* Panel Metricool */}
       <iframe
         src={loginUrl}
         style={{ width: '100%', height: 'calc(100vh - 50px)', border: 'none' }}
@@ -39,9 +37,9 @@ const MetricoolPanel = ({ loginToken }) => {
   );
 };
 
-export default MetricoolPanel;
+export default MetricoolPanel;*/
 
-/*const MetricoolPanel = ({ loginToken }) => {
+const MetricoolPanel = ({ loginToken }) => {
   const loginUrl = `https://app.metricool.com/autoin/KHDLAUEHUOLAKQCIJJXW`;
 
   return (
@@ -53,4 +51,4 @@ export default MetricoolPanel;
   );
 };
 
-export default MetricoolPanel;*/
+export default MetricoolPanel;
