@@ -20,7 +20,6 @@ const Dashboard = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
-          {/* Título similar al de la imagen de "Calendario" */}
            <div className="page-title-box">
                       <Row className="align-items-center">
                         <Col md={8}>
@@ -44,8 +43,6 @@ const Dashboard = () => {
               </Card>
             </Col>
           </Row>
-
-          {/* Texto centrado debajo del iframe */}
           <Row>
             <Col className="text-center mt-3">
               <p className="text-muted">

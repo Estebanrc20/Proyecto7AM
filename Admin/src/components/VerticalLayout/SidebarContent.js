@@ -154,7 +154,7 @@ const SidebarContent = props => {
               </Link>
             </li>
 
-            <li>
+            {/*<li>
               <Link to="/calendario" className=" waves-effect">
                 <i className="ti-calendar"></i>
                 <span>{props.t("Calendario")}</span>
@@ -180,132 +180,13 @@ const SidebarContent = props => {
                   <Link to="/reportes">{props.t("Reportes mensuales de rendimiento")} </Link>
                   </li>
               </ul>
-            </li>
-            
-
-            {/*<li className="menu-title">{props.t("Components")}</li>
-
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-package"></i>
-                <span>{props.t("UI Elements")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/ui-alerts">{props.t("Alerts")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-buttons">{props.t("Buttons")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-cards">{props.t("Cards")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-carousel">{props.t("Carousel")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-dropdowns">{props.t("Dropdowns")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-grid">{props.t("Grid")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-images">{props.t("Images")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-lightbox">{props.t("Lightbox")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-modals">{props.t("Modals")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-offcanvas">{props.t("Offcanvas")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-session-timeout">
-                    {props.t("Session Timeout")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/ui-progressbars">{props.t("Progress Bars")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-tabs-accordions">
-                    {props.t("Tabs & Accordions")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/ui-typography">{props.t("Typography")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-video">{props.t("Video")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-general">{props.t("General")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-colors">{props.t("Colors")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-rating">{props.t("Rating")}</Link>
-                </li>
-                <li>
-                  <Link to="/ui-utilities">{props.t("Utilities")}</Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link to="/#" className="waves-effect">
-                <i className="ti-receipt"></i>
-                <span className="badge rounded-pill bg-success float-end">9</span>
-                <span>{props.t("Forms")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/form-elements">{props.t("Form Elements")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-validation">{props.t("Form Validation")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-advanced">{props.t("Form Advanced")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-editors">{props.t("Form Editors")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-uploads">{props.t("Form File Upload")} </Link>
-                </li>
-                <li>
-                  <Link to="/form-repeater">{props.t("Form Repeater")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-wizard">{props.t("Form Wizard")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-mask">{props.t("Form Mask")}</Link>
-                </li>
-              </ul>
             </li>*/}
             <li>
             <Link to="/Plantillas" >
                 <i className="ti-layout"></i>
                 <span>{props.t("Plantillas Canva")}</span>
               </Link>
-              {/*<ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/e-charts">{props.t("E Chart")}</Link>
-                </li>
-                <li>
-                  <Link to="/chartjs-charts">{props.t("Chartjs Chart")}</Link>
-                </li>
-                <li>
-                  <Link to="/apex-charts">{props.t("Apex charts")}</Link>
-                </li>
-                <li>
-                  <Link to="/sparkline-charts">{props.t("Sparkline Chart")}</Link>
-                </li>
-              </ul>*/}
+              
             </li>
             <li>
               <Link to="/Ideas" className=" waves-effect">
@@ -313,99 +194,6 @@ const SidebarContent = props => {
                 <span>{props.t("Ideas de contenido")}</span>
               </Link>
             </li>
-            {/*<li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-view-grid"></i>
-                <span>{props.t("Tables")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/tables-basic">{props.t("Basic Tables")}</Link>
-                </li>
-                <li>
-                  <Link to="/tables-datatable">{props.t("Data Tables")}</Link>
-                </li>
-                <li>
-                  <Link to="/tables-responsive">
-                    {props.t("Responsive Table")}
-                  </Link>
-                </li>
-              </ul>
-            </li> */}
-            {/*<li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-face-smile"></i>
-                <span>{props.t("Icons")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/icons-materialdesign">
-                    {props.t("Material Design")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/icons-fontawesome">{props.t("Font awesome")}</Link>
-                </li>
-                <li>
-                  <Link to="/icons-ion">{props.t("Ion Icons")}</Link>
-                </li>
-                <li>
-                  <Link to="/icons-themify">{props.t("Themify Icons")}</Link>
-                </li>
-                <li>
-                  <Link to="/icons-dripicons">{props.t("Dripicons")}</Link>
-                </li>
-                <li>
-                  <Link to="/icons-typicons">{props.t("Typicons Icons")}</Link>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <Link to="/#">
-                <i className="ti-location-pin"></i>
-                <span className="badge rounded-pill bg-danger float-end">2</span>
-                <span>{props.t("Maps")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/maps-google">{props.t("Google Maps")}</Link>
-                </li>
-                <li>
-                  <Link to="/maps-vector">{props.t("Vector Maps")}</Link>
-                </li>
-                <li>
-                  <Link to="/maps-leaflet">{props.t("Leaflet Maps")}</Link>
-                </li>
-              </ul>
-            </li>*/}
-
-            {/* <li className="menu-title">Extras</li>
-
-          <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-archive"></i>
-                <span>{props.t("Autenticacion")}</span>
-
-              </Link>
-              <ul className="sub-menu">
-                <li>
-                  <Link to="/pages-login">{props.t("Login")}</Link>
-                </li>
-                <li>
-                  <Link to="/pages-register">{props.t("Register")}</Link>
-                </li>
-                <li>
-                  <Link to="/page-recoverpw">
-                    {props.t("Recover Password")}
-                  </Link>
-                </li>
-                
-                <li>
-                  <Link to="/auth-lock-screen">{props.t("Lock screen")}</Link>
-                </li>
-              </ul>
-            </li>*/}
 
           </ul>
         </div>
