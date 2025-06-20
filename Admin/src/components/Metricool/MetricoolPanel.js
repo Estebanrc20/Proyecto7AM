@@ -37,12 +37,10 @@ const MetricoolPanel = () => {
     fetchIframe();
   }, []);
 
-  const fullHeight = `calc(100vh - 100px)`; // Ajusta si tienes un header fijo
-
   if (loading) {
     return (
       <div style={{
-        height: fullHeight,
+        height: 'calc(100vh - 70px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -55,7 +53,7 @@ const MetricoolPanel = () => {
   if (!iframe || iframeError) {
     return (
       <div style={{
-        height: fullHeight,
+        height: 'calc(100vh - 70px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
@@ -66,18 +64,26 @@ const MetricoolPanel = () => {
   }
 
   return (
-    <iframe
-      src={iframe}
-      title="Estadísticas Metricool"
-      style={{
-        width: '100%',
-        height: fullHeight,
-        border: 'none',
-        overflow: 'hidden',
-        display: 'block',
-      }}
-      onError={() => setIframeError(true)}
-    />
+    <div style={{
+      position: 'fixed',
+      top: '70px', // Ajusta este valor según el alto real de tu header
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: 1
+    }}>
+      <iframe
+        src={iframe}
+        title="Estadísticas Metricool"
+        style={{
+          width: '100%',
+          height: '100%',
+          border: 'none',
+          display: 'block',
+        }}
+        onError={() => setIframeError(true)}
+      />
+    </div>
   );
 };
 
