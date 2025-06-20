@@ -1,19 +1,93 @@
-/*const MetricoolPanel = ({ loginToken }) => {
-  const loginUrl = `https://app.metricool.com/autoin/KHDLAUEHUOLAKQCIJJXW`;
+import { useEffect, useState } from 'react';
+import { supabase } from '../../supabaseClient';
+
+const MetricoolPanel = () => {
+  const [iframe, setIframe] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [iframeError, setIframeError] = useState(false);
+
+  useEffect(() => {
+    const fetchIframe = async () => {
+      const { data, error: userError } = await supabase.auth.getUser();
+
+      if (userError || !data?.user) {
+        console.error("Error obteniendo el usuario:", userError);
+        setLoading(false);
+        return;
+      }
+
+      const userId = data.user.id;
+
+      const { data: userData, error } = await supabase
+        .from("users_data")
+        .select("metricoolIframe")
+        .eq("id", userId)
+        .single();
+
+      if (error) {
+        console.error("Error obteniendo el iframe:", error);
+        setLoading(false);
+        return;
+      }
+
+      setIframe(userData.metricoolIframe);
+      setLoading(false);
+    };
+
+    fetchIframe();
+  }, []);
+
+  const iframeContainerStyle = {
+    minHeight: '300px',
+    maxHeight: '80vh',
+    overflow: 'hidden',
+    backgroundColor: '#f5f5f5',
+    borderRadius: '8px',
+    border: '1px solid #ddd',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '1rem',
+  };
+
+  if (loading) {
+    return (
+      <div style={iframeContainerStyle}>
+        <h5>Cargando estadísticas personalizadas...</h5>
+      </div>
+    );
+  }
+
+  if (!iframe || iframeError) {
+    return (
+      <div style={iframeContainerStyle}>
+        <h5>No se pudo cargar tu panel personalizado.</h5>
+      </div>
+    );
+  }
 
   return (
-    <iframe
-      src={loginUrl}
-      style={{ width: '100%', height: '90vh', border: 'none'}}
-      title="Metricool White Label"
-    />
+    <div style={iframeContainerStyle}>
+      <iframe
+        src={iframe}
+        title="Estadísticas Metricool"
+        style={{ width: '100%', height: '100%', border: 'none' }}
+        onError={() => setIframeError(true)}
+      />
+    </div>
   );
 };
 
-export default MetricoolPanel;*/
+export default MetricoolPanel;
 
 
-import { useEffect, useState } from 'react';
+
+
+
+
+
+
+/*import { useEffect, useState } from 'react';
 import { supabase } from '../../supabaseClient';
 
 const MetricoolPanel = () => {
@@ -78,5 +152,4 @@ const MetricoolPanel = () => {
   );
 };
 
-export default MetricoolPanel;
-
+export default MetricoolPanel;*/
