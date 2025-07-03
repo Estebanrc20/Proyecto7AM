@@ -2,6 +2,7 @@
   "name": "7AMDIGITAL-react",
   "version": "5.2.0",
   "private": true,
+  "homepage": "https://portal.7am.com.co",
   "dependencies": {
     "@fullcalendar/bootstrap": "^6.1.15",
     "@fullcalendar/core": "^6.1.15",
@@ -18,7 +19,7 @@
     "@testing-library/user-event": "^14.5.2",
     "@toast-ui/react-chart": "^4.7.1",
     "@vtaits/react-color-picker": "^1.0.2",
-    "apexcharts": "^3.54.0",
+    "apexcharts": "^4.0.0",
     "axios": "^1.9.0",
     "axios-mock-adapter": "^2.0.0",
     "babel-eslint": "^10.1.0",
