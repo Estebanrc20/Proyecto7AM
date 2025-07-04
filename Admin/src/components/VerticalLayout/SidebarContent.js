@@ -9,6 +9,8 @@ import MetisMenu from "metismenujs";
 import withRouter from "components/Common/withRouter";
 import { Link, useLocation } from "react-router-dom";
 
+//i18n
+import { withTranslation } from "react-i18next";
 
 const SidebarContent = props => {
   const location = useLocation();

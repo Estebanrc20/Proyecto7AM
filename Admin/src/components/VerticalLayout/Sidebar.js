@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 // import { withRouter } from "react-router-dom"
 import withRouter from "components/Common/withRouter";
 
+//i18n
+import { withTranslation } from "react-i18next";
 import SidebarContent from "./SidebarContent";
 
 const Sidebar = props => {
