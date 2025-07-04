@@ -2,6 +2,7 @@
   "name": "7AMDIGITAL-react",
   "version": "5.2.0",
   "private": true,
+  "homepage": "https://portal.7am.com.co",
   "dependencies": {
     "@fullcalendar/bootstrap": "^6.1.15",
     "@fullcalendar/core": "^6.1.15",
