@@ -9,14 +9,9 @@ import { Link } from "react-router-dom";
 // Import menuDropdown
 import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu";
 
-/*import logodarkImg from "../../assets/images/logo-dark.png";
-import logosmImg from "../../assets/images/logo-sm.png";
-import logolightImg from "../../assets/images/logo-light.png";*/
 import logo7amImg from "../../assets/images/LOGO7AM.png";
 import logo7amblanco from "../../assets/images/logo7amblanco.png";
 
-//i18n
-import { withTranslation } from "react-i18next";
 
 // Redux Store
 import {

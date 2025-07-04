@@ -14,13 +14,8 @@ import { Row, Col, Dropdown, DropdownToggle, DropdownMenu,DropdownItem } from "r
 
 import ProfileMenu from "../CommonForBoth/TopbarDropdown/ProfileMenu"
 
-//i18n
-import { withTranslation } from "react-i18next"
 
-// import images
-/*import logodarkImg from "../../assets/images/logo-dark.png";
-import logosmImg from "../../assets/images/logo-sm.png";
-import logolightImg from "../../assets/images/logo-light.png";*/
+
 import logo7AMImg from "../../assets/images/LOGO7AM.png";
 import logo7amblanco from "../../assets/images/logo7amblanco.png";
 const Header = props => {
