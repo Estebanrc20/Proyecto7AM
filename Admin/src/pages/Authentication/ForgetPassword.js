@@ -15,7 +15,7 @@ const ForgetPasswordPage = () => {
 
   const redirectTo =
     process.env.NODE_ENV === "production"
-      ? "https://proyecto7-am-original.vercel.app/ResetPassword"
+      ? "https://portal.7am.com.co/ResetPassword"
       : "http://localhost:3000/ResetPassword";
 
   const validation = useFormik({
