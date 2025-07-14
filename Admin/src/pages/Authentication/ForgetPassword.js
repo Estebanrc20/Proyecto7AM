@@ -13,10 +13,17 @@ const ForgetPasswordPage = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  const redirectTo =
-    process.env.NODE_ENV === "production"
-      ? "https://portal.7am.com.co/ResetPassword"
-      : "http://localhost:3000/ResetPassword";
+  // ✅ Redireccionamiento dinámico para los 3 entornos
+  let redirectTo;
+  const hostname = window.location.hostname;
+
+  if (hostname === "portal.7am.com.co") {
+    redirectTo = "https://portal.7am.com.co/ResetPassword";
+  } else if (hostname === "proyecto7-am-original.vercel.app") {
+    redirectTo = "https://proyecto7-am-original.vercel.app/ResetPassword";
+  } else {
+    redirectTo = "http://localhost:3000/ResetPassword";
+  }
 
   const validation = useFormik({
     initialValues: {
@@ -43,8 +50,6 @@ const ForgetPasswordPage = () => {
 
   useEffect(() => {
     document.title = "Olvidar contraseña | 7AM Digital";
-
-    // Precargar la imagen de fondo
     const img = new Image();
     img.src = bannerBg;
   }, []);
@@ -135,4 +140,3 @@ const ForgetPasswordPage = () => {
 };
 
 export default ForgetPasswordPage;
-
