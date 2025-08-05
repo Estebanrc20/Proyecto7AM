@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import { supabase } from '../../supabaseClient';
 
 const Home = () => {
-  document.title = "Planificacion | 7 AM Digital";
+  document.title = "Anuncios | 7 AM Digital";
 
-  const [planificacionUrl, setPlanificacionUrl] = useState("");
+  const [anunciosUrl, setAnunciosUrl] = useState("");
 
   useEffect(() => {
-    const fetchPlannerUrl = async () => {
+    const fetchAnunciosUrl = async () => {
       const { data: { user }, error: userError } = await supabase.auth.getUser();
 
       if (userError || !user) {
@@ -18,33 +18,32 @@ const Home = () => {
 
       const { data, error } = await supabase
         .from("users_data")
-        .select("planificacion")
+        .select("anuncios")
         .eq("email", user.email)
         .single();
 
       if (error) {
         console.error("❌ Error al consultar la tabla users_data:", error);
       } else {
-        let url = data.planificacion;
+        const url = data.anuncios;
         if (url) {
-          url += url.includes("?") ? "&redirect=Planner" : "?redirect=Planner";
-          setPlanificacionUrl(url);
+          setAnunciosUrl(url); // No agregamos redirect, ya está incluido en la URL
         }
       }
     };
 
-    fetchPlannerUrl();
+    fetchAnunciosUrl();
   }, []);
 
   return (
     <div className="page-content" style={{ padding: 0, margin: 0 }}>
-      {planificacionUrl ? (
+      {anunciosUrl ? (
         <iframe
-          src={planificacionUrl}
-          title="Planificacion"
+          src={anunciosUrl}
+          title="Anuncios"
           style={{
             width: "100vw",
-            height: "calc(100vh - 60px)", // Ajusta 60px si tienes header fijo
+            height: "calc(100vh - 60px)", // Ajusta según tu diseño
             border: "none",
             margin: 0,
             padding: 0,

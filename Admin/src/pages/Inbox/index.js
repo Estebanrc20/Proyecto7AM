@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import { supabase } from '../../supabaseClient';
 
 const Home = () => {
-  document.title = "Planificacion | 7 AM Digital";
+  document.title = "Planeación | 7 AM Digital";
 
-  const [planificacionUrl, setPlanificacionUrl] = useState("");
+  const [inboxUrl, setInboxUrl] = useState("");
 
   useEffect(() => {
-    const fetchPlannerUrl = async () => {
+    const fetchInboxUrl = async () => {
       const { data: { user }, error: userError } = await supabase.auth.getUser();
 
       if (userError || !user) {
@@ -18,30 +18,30 @@ const Home = () => {
 
       const { data, error } = await supabase
         .from("users_data")
-        .select("planificacion")
+        .select("inbox")
         .eq("email", user.email)
         .single();
 
       if (error) {
         console.error("❌ Error al consultar la tabla users_data:", error);
       } else {
-        let url = data.planificacion;
+        let url = data.inbox;
         if (url) {
-          url += url.includes("?") ? "&redirect=Planner" : "?redirect=Planner";
-          setPlanificacionUrl(url);
+          url += url.includes("?") ? "&redirect=Inbox" : "?redirect=Inbox";
+          setInboxUrl(url);
         }
       }
     };
 
-    fetchPlannerUrl();
+    fetchInboxUrl();
   }, []);
 
   return (
     <div className="page-content" style={{ padding: 0, margin: 0 }}>
-      {planificacionUrl ? (
+      {inboxUrl ? (
         <iframe
-          src={planificacionUrl}
-          title="Planificacion"
+          src={inboxUrl}
+          title="Inbox"
           style={{
             width: "100vw",
             height: "calc(100vh - 60px)", // Ajusta 60px si tienes header fijo
