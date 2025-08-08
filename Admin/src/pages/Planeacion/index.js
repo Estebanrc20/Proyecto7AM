@@ -1,20 +1,33 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  Button
-} from "reactstrap";
 import MetricoolPanel from 'components/Metricool/MetricoolPanel';
 import { supabase } from '../../supabaseClient';
 
 const Home = () => {
-  document.title = "Planificación y Analítica | 7 AM Digital";
+  document.title = "Planeacion | 7 AM Digital";
 
   const [iframeUrl, setIframeUrl] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detectar si es móvil
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile(); // Comprobación inicial
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Quitar scroll vertical
+  useEffect(() => {
+    document.body.style.overflowY = "hidden";
+    document.documentElement.style.overflowY = "hidden";
+    return () => {
+      document.body.style.overflowY = "auto";
+      document.documentElement.style.overflowY = "auto";
+    };
+  }, []);
 
   useEffect(() => {
     const fetchIframeUrl = async () => {
@@ -30,7 +43,7 @@ const Home = () => {
       const { data, error } = await supabase
         .from("users_data")
         .select("metricoolIframe")
-        .eq("email", user.email) // puedes usar .eq("id", user.id) si usas ID como clave
+        .eq("email", user.email)
         .single();
 
       if (error) {
@@ -46,45 +59,25 @@ const Home = () => {
 
   return (
     <React.Fragment>
-      <div className="page-content">
-        <Container fluid={true}>
-          {/*<div className="page-title-box">
-            <Row className="align-items-center">
-              <Col md={8}>
-                <h6 className="page-title">Estadísticas de Metricool</h6>
-                <ol className="breadcrumb m-0">
-                  <li className="breadcrumb-item active">7AM Digital</li>
-                </ol>
-              </Col>
-            </Row>
-          </div> */}
-          <Row>
-            <Col md={12}>
-              <Card>
-                <CardBody>
-                  <MetricoolPanel />
-
-                  {/* ✅ Botón debajo del iframe */}
-                  {iframeUrl && (
-                    <div className="text-center mt-4">
-                      <p style={{ fontSize: "14px", color: "#666" }}>
-                        Si no se carga automáticamente,&nbsp;
-                        <strong>haz clic aquí:</strong>
-                      </p>
-                      <Button
-                        style={{ backgroundColor: '#000b24', borderColor: '#000b24', color: 'white' }}
-                        size="sm"
-                        onClick={() => window.open(iframeUrl, "_blank")}>
-                        Ver en pantalla completa
-                      </Button>
-
-                    </div>
-                  )}
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+      <div className="page-content" style={{
+        height: '100vh',
+        width: '100%',
+        overflow: 'hidden',
+        padding: 0,
+        margin: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        {isMobile ? (
+          <div style={{ textAlign: 'center', padding: '20px' }}>
+            <h2>⚠ No disponible en móvil</h2>
+            <p>Por favor use un computador para acceder a esta sección.</p>
+          </div>
+        ) : (
+          <MetricoolPanel />
+        )}
       </div>
     </React.Fragment>
   );
