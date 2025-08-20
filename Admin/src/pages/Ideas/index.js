@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from "react";
+import { FaTrash, FaEdit } from "react-icons/fa";
 import {
   Container,
   Row,
@@ -59,7 +60,7 @@ const Home = () => {
     setEditedIdea({ ...idea });
   };
 
-   const handleCancel = () => {
+  const handleCancel = () => {
     if (String(editingId).startsWith("nuevo-")) {
       setIdeas(prevIdeas => prevIdeas.filter(i => i.id !== editingId));
     }
@@ -159,6 +160,51 @@ const Home = () => {
     };
   };
 
+  const sincronizarConMetricool = async () => {
+    try {
+      const { data: { user }, error } = await supabase.auth.getUser();
+      if (error || !user) {
+        alert("⚠️ Debes iniciar sesión antes de sincronizar tu contenido.");
+        return;
+      }
+
+      // Buscar nombre en la tabla users_data
+      const { data: userData, error: userDataError } = await supabase
+        .from("users_data")
+        .select("nombre")
+        .eq("id", user.id)
+        .single();
+
+      if (userDataError) {
+        alert("⚠️ No pudimos obtener tu nombre de usuario. Inténtalo nuevamente.");
+        return;
+      }
+
+      const datos = {
+        id: user.id,
+        nombre: userData?.nombre || "Sin nombre",
+      };
+
+      const response = await fetch(
+        "https://hook.us2.make.com/hmeaxnukvht36o1w3et8yuif2hc0sua0",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(datos),
+        }
+      );
+
+      if (response.ok) {
+        alert("✅ Ahora puedes continuar en la sección de Planeación para seguir con tu proceso de contenido.");
+      } else {
+        alert("❌ Hubo un problema al enviar la información. Por favor, intenta nuevamente.");
+      }
+    } catch (err) {
+      alert("❌ Ocurrió un error inesperado en la sincronización. Inténtalo otra vez.");
+    }
+  };
+
+
   document.title = "Ideas | 7 AM Digital";
 
   return (
@@ -206,7 +252,10 @@ const Home = () => {
             </Button>
           </Col>
           <Col className="text-end">
-            <Button style={{ backgroundColor: "#000b24", color: "#fff" }}>
+            <Button
+              style={{ backgroundColor: "#000b24", color: "#fff" }}
+              onClick={sincronizarConMetricool}
+            >
               Sincronizar con Metricool
             </Button>
           </Col>
@@ -334,17 +383,48 @@ const Home = () => {
                                 </>
                               ) : (
                                 <>
-                                  <Button color="warning" size="sm" onClick={() => handleEdit(idea)}>
-                                    Editar
-                                  </Button>
-                                  <Button
-                                    color="danger"
-                                    size="sm"
-                                    onClick={() => handleDelete(idea.id)}
-                                    disabled={String(idea.id).startsWith("nuevo-")}
-                                  >
-                                    Eliminar
-                                  </Button>
+                                  <div style={{ display: "flex", gap: "6px" }}>
+                                    <Button
+                                      size="sm"
+                                      style={{
+                                        backgroundColor: "#e3f2fd", // azul muy claro
+                                        border: "none",
+                                        color: "#1976d2",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        width: "32px",
+                                        height: "32px",
+                                        transition: "background-color 0.3s ease" // transición suave
+                                      }}
+                                      onClick={() => handleEdit(idea)}
+                                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#bbdefb")} // azul un poco más oscuro
+                                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#e3f2fd")}
+                                    >
+                                      <FaEdit />
+                                    </Button>
+
+                                    <Button
+                                      size="sm"
+                                      style={{
+                                        backgroundColor: "#ffebee", // rojo muy claro
+                                        border: "none",
+                                        color: "#d32f2f",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        width: "32px",
+                                        height: "32px",
+                                        transition: "background-color 0.3s ease" // transición suave
+                                      }}
+                                      onClick={() => handleDelete(idea.id)}
+                                      disabled={String(idea.id).startsWith("nuevo-")}
+                                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ffcdd2")} // rojo más fuerte
+                                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ffebee")}
+                                    >
+                                      <FaTrash />
+                                    </Button>
+                                  </div>
                                 </>
                               )}
                             </div>
