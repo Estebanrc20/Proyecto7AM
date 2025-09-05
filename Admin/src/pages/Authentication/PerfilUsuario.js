@@ -139,7 +139,8 @@ const PerfilUsuario = props => {
     try {
       // Actualizar en Authentication
       const { error: authError } = await supabase.auth.updateUser({
-        email: newEmail}, { redirectTo: "https://tu-app.vercel.app/login"});
+        email: newEmail, 
+      });
 
       if (authError) {
         console.error("Error actualizando en Auth:", authError.message);
