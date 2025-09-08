@@ -20,7 +20,7 @@ const MetricoolPanel = () => {
 
       const { data: userData, error } = await supabase
         .from("users_data")
-        .select("metricoolIframe")
+        .select("planificacion")
         .eq("id", userId)
         .single();
 
@@ -30,7 +30,7 @@ const MetricoolPanel = () => {
         return;
       }
 
-      setIframe(userData.metricoolIframe);
+      setIframe(userData.planificacion);
       setLoading(false);
     };
 
