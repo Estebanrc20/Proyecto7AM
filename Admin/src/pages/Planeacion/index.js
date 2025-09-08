@@ -42,15 +42,15 @@ const Home = () => {
 
       const { data, error } = await supabase
         .from("users_data")
-        .select("metricoolIframe")
+        .select("planificacion")
         .eq("email", user.email)
         .single();
 
       if (error) {
         console.error("❌ Error al consultar la tabla users_data:", error);
       } else {
-        console.log("✅ iframe encontrado:", data.metricoolIframe);
-        setIframeUrl(data.metricoolIframe);
+        console.log("✅ iframe encontrado:", data.planificacion);
+        setIframeUrl(data.planificacion);
       }
     };
 
