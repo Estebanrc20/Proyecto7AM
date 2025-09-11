@@ -257,7 +257,7 @@ const Home = () => {
               style={{ backgroundColor: "#000b24", color: "#fff" }}
               onClick={sincronizarConMetricool}
             >
-              Sincronizar con Metricool
+              Enviar a Planeación
             </Button>
           </Col>
         </Row>
