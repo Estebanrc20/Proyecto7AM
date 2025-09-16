@@ -149,7 +149,7 @@ const Home = () => {
       },
     };
 
-    const item = colors[type]?.[value?.toLowerCase()] || { bg: "#f0f0f0", color: "#333" };
+    const item = colors[type]?.[value] || { bg: "#f0f0f0", color: "#333" };
     return {
       backgroundColor: item.bg,
       color: item.color,
