@@ -14,9 +14,9 @@ import {
 } from "reactstrap";
 import { supabase } from '../../supabaseClient';
 
-const formatoOptions = ["reel", "post", "story"];
-const categoriaOptions = ["atencion", "interes", "deseo", "accion"];
-const pilarOptions = ["educativo", "comercial", "inspiracional", "entretenimiento", "entretenido"];
+const formatoOptions = ["Reel", "Post", "Story"];
+const categoriaOptions = ["Atención", "Interés", "Deseo", "Acción"];
+const pilarOptions = ["Educativo", "Comercial", "Inspiracional", "Entretenimiento", "Entretenido"];
 
 const Home = () => {
   const [ideas, setIdeas] = useState([]);
@@ -130,22 +130,22 @@ const Home = () => {
   const getBadgeStyle = (type, value) => {
     const colors = {
       formato: {
-        reel: { bg: "#d1ecf1", color: "#0c5460" },
-        post: { bg: "#d4edda", color: "#155724" },
-        story: { bg: "#f8d7da", color: "#721c24" },
+        Reel: { bg: "#d1ecf1", color: "#0c5460" },
+        Post: { bg: "#d4edda", color: "#155724" },
+        Story: { bg: "#f8d7da", color: "#721c24" },
       },
       categoria: {
-        atencion: { bg: "#f8d7da", color: "#721c24" },
-        interes: { bg: "#03030331", color: "#383d41" },
-        deseo: { bg: "#e2ce8bbe", color: "#856404" },
-        accion: { bg: "#d1ecf1", color: "#0c5460" },
+        Atención: { bg: "#f8d7da", color: "#721c24" },
+        Interés: { bg: "#03030331", color: "#383d41" },
+        Deseo: { bg: "#e2ce8bbe", color: "#856404" },
+        Acción: { bg: "#d1ecf1", color: "#0c5460" },
       },
       pilar: {
-        educativo: { bg: "#d1ecf1", color: "#0c5460" },
-        comercial: { bg: "#d4edda", color: "#155724" },
-        inspiracional: { bg: "#fff3cd", color: "#856404" },
-        entretenimiento: { bg: "#f8d7da", color: "#721c24" },
-        entretenido: { bg: "#e2e3e5", color: "#383d41" },
+        Educativo: { bg: "#d1ecf1", color: "#0c5460" },
+        Comercial: { bg: "#d4edda", color: "#155724" },
+        Inspiracional: { bg: "#fff3cd", color: "#856404" },
+        Entretenimiento: { bg: "#f8d7da", color: "#721c24" },
+        Entretenido: { bg: "#e2e3e5", color: "#383d41" },
       },
     };
 
